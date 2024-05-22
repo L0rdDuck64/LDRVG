@@ -1,6 +1,6 @@
 # LDRVG
 
-#### This is the continuation of my project [LUORVG](https://github.com/L0rdDuck64/LUORVG)
+#### This project is the continuation of [LUORVG](https://github.com/L0rdDuck64/LUORVG)
 
 ## GitHub Pages
 
