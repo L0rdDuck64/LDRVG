@@ -4,6 +4,7 @@
 
 ## GitHub Pages
 
-I will try to do a page of this project because yes(I dont know html and css)
+[LDRVG Site](https://github.com/L0rdDuck64/LUORVG)
+My apologies for the bad site, I've never used HTML or CSS in my life.
 
 ## I'll update the README later
