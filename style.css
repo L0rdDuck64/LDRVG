@@ -46,10 +46,13 @@ nav ul li a {
     text-decoration: none;
     color: black;
     font-size: 1em;
+}
+
+nav ul li {
     animation: navout 0.5s forwards;
 }
 
-nav ul li a:hover {
+nav ul li:hover {
     animation: navin 0.5s forwards;
 }
 
@@ -71,6 +74,14 @@ h1 {
     background-clip: text;
     color: transparent;
     -webkit-text-stroke: 0.023em #264059;
+}
+
+p span a {
+    color: inherit;
+    text-decoration: none;
+    -webkit-text-stroke: 0.027em #2582de;
+    font-weight: 600;
+    font-size: 1.1em;
 }
 
 .logo a {
@@ -123,10 +134,12 @@ button {
     cursor: pointer;
     margin-top: 1vh;
     margin-bottom: 2vh;
+    background: #add8e6;
     border: 0.4vh solid #6fb7ff;
     border-radius: 10px;
     font-family: "Mulish", sans-serif;
     font-weight: 500;
+    position: relative;
     animation: buttonout 0.6s forwards;
 }
 
@@ -137,13 +150,13 @@ button:hover {
 @keyframes buttonscale {
     from {
         transform: scale(1);
-        background-color: #add8e6;
+        background: #add8e6;
         border: 0.4vh solid #6fb7ff;
         box-shadow: none;
     }
     to {
         transform: scale(1.13);
-        background-color: #a0c6ea;
+        background: #a0c6ea;
         border: 0.45vh solid #5eaeff;
         box-shadow: 0 0 25px rgba(73, 164, 255, 0.7);
 
@@ -154,13 +167,13 @@ button:hover {
 
     from {
         transform: scale(1.13);
-        background-color: #a0c6ea;
+        background: #a0c6ea;
         border: 0.45vh solid #5eaeff;
         box-shadow: 0 0 25px rgba(73, 164, 255, 0.7);
     }
     to {
         transform: scale(1);
-        background-color: #add8e6;
+        background: #add8e6;
         border: 0.4vh solid #6fb7ff;
         box-shadow: none;
     }
@@ -170,10 +183,12 @@ button:hover {
 @keyframes navin {
 
     from {
-        font-size: 1em;
+        transform: scale(1);
+        font-weight: 400;
     }
     to {
-        font-size: 1.1em;
+        transform: scale(1.1);
+        font-weight: 500;
     }
 
 }
@@ -181,9 +196,11 @@ button:hover {
 @keyframes navout {
     
     from {
-        font-size: 1.1em;
+        transform: scale(1.1);
+        font-weight: 500;
     }
     to {
-        font-size: 1em;
+        transform: scale(1);
+        font-weight: 400;
     }
 }
