@@ -4,6 +4,7 @@ from customtkinter import *
 
 vidType = "Auto"
 useLimitLenght = False
+subsList = []
 
 # Functions
 
@@ -17,6 +18,10 @@ def saveTxtFromFile(filename, textbox):
         file_content = file.read()
         textbox.delete("1.0", "end")
         textbox.insert("1.0", file_content)
+
+def sepByLine(text):
+    subsList = text.splitlines()
+    print(subsList)
 
 def launchMainGUI(res):
 
@@ -53,8 +58,8 @@ def launchMainGUI(res):
     SVTLabel.place(relx=0.18, rely=0.03, anchor='e')
     CheckerVideoLimit.place(relx=0.15, rely=0.15, anchor='center')
     VideoLenghtTextBox.place(relx=0.15,rely=0.2, anchor='center')
-    SubsTextBox.place(relx=0.15, rely=0.7, anchor='center')
-    SaveSubsBtn.place(relx=0.3, rely=0.52, anchor='e')
+    SubsTextBox.place(relx=0.15, rely=0.85, anchor='center')
+    SaveSubsBtn.place(relx=0.3, rely=0.67, anchor='e')
 
     saveTxtFromFile('subs.txt', SubsTextBox)
 
