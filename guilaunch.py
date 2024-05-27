@@ -1,13 +1,7 @@
 from customtkinter import *
+from tkinter import filedialog
 
 # Setuping
-
-vidType = "Auto"
-vidLang = "en"
-useLimitLenght = False
-subsList = []
-
-# Functions
 
 def saveTxtToFile(text, filename, lines):
     with open(f"data/{filename}", "w") as file:
@@ -33,6 +27,17 @@ def getTxtLine(line, filename):
 
     return file_content[line - 1]
 
+def openFileDialog():
+        arch = filedialog.askopenfilename(title="Select a Chromium User Data Directory")
+        return arch
+
+# Main
+
+vidType = "Auto"
+vidLang = "en"
+uddFile = getTxtLine(3, 'data.txt') if getTxtLine(3, 'data.txt') != "None" else None
+useLimitLenght = False
+subsList = []
 
 def launchMainGUI(res):
 
@@ -43,7 +48,12 @@ def launchMainGUI(res):
     def setVideoLang(value):
         vidLang = value
         changeTxtLine(vidLang, 2, 'data.txt')
-        
+
+    def setUDD(value):
+        uddFile = value
+        changeTxtLine(value, 3, 'data.txt')
+        if value == None:
+            uddFile = None
 
     def toggleLimitLenght():
         useLimitLenght = CheckerVideoLimit.get()
@@ -56,6 +66,14 @@ def launchMainGUI(res):
     def saveSubs():
         saveTxtToFile(SubsTextBox.get("1.0", "end-1c"), 'subs.txt')
 
+    def SelectUserDDir():
+        tempVar = openFileDialog()
+        if tempVar:
+            uddFile = tempVar
+            changeTxtLine(uddFile, 3, 'data.txt')
+            selUDD.configure(values=["None", uddFile])
+            selUDD.set(uddFile)
+
     app = CTk()
     app.geometry(f"{res[0]}x{res[1]}")
     app.title("LDRVG")
@@ -63,9 +81,12 @@ def launchMainGUI(res):
     titLabel = CTkLabel(master=app, text="LDRVG", font=('Arial', 28), text_color='#D5AF32')
     SVTLabel = CTkLabel(master=app, text="Video Type", font=('Arial', 17))
     SVLLabel = CTkLabel(master=app, text="Video Lang", font=('Arial', 17))
+    UDDLabel = CTkLabel(master=app, text="User Data Dir", font=('Arial', 17))
     genVidBut = CTkButton(master=app, text="Generate Video", corner_radius=5)
+    selectUDDbut = CTkButton(master=app, text="Select File", corner_radius=5, width=100, height=20, command=SelectUserDDir)
     selVidType = CTkComboBox(master=app, values=["Auto", "Long", "Shorts"], command=setVideoType)
     selVidLang = CTkComboBox(master=app, values=["en", "pt", "es"], command=setVideoLang)
+    selUDD = CTkComboBox(master=app, values=["None"] if getTxtLine(3, 'data.txt') == "None" else ["None", getTxtLine(3, 'data.txt')], command=setUDD)
     CheckerVideoLimit = CTkCheckBox(master=app, text="Limit Video Lengtht?", command=toggleLimitLenght)
     VideoLenghtTextBox = CTkEntry(master=app, placeholder_text="Length limit")
     SubsTextBox = CTkTextbox(master=app, width=180, height=180, wrap=None)
@@ -81,11 +102,19 @@ def launchMainGUI(res):
     SaveSubsBtn.place(relx=0.3, rely=0.67, anchor='e')
     SVLLabel.place(relx=0.18, rely=0.26, anchor='e')
     selVidLang.place(relx=0.15, rely=0.31, anchor='center')
+    selectUDDbut.place(relx=0.85, rely=0.16, anchor='center')
+    selUDD.place(relx=0.85, rely=0.205, anchor='center')
+    UDDLabel.place(relx=0.85, rely=0.12, anchor='center')
+
+    vidType = getTxtLine(1, 'data.txt')
+    vidLang = getTxtLine(2, 'data.txt')
+    subsList = saveTxtFromFile('subs.txt')
 
     SubsTextBox.delete("1.0", "end")
-    SubsTextBox.insert("1.0", saveTxtFromFile('subs.txt'))
+    SubsTextBox.insert("1.0", subsList)
 
-    selVidType.set(getTxtLine(1, 'data.txt'))
-    selVidLang.set(getTxtLine(2, 'data.txt'))
+    selVidType.set(vidType)
+    selVidLang.set(vidLang)
+    selUDD.set(getTxtLine(3, 'data.txt'))
 
     app.mainloop()
