@@ -21,18 +21,29 @@ def saveTxtFromFile(filename):
         file_content = file.read()
 
         return file_content
+    
+def changeTxtLine(text, lineNum, filename):
+    file_content = saveTxtFromFile(filename).splitlines()
+    file_content[lineNum - 1] = text
+    file_content = [line if line.endswith('\n') or line == file_content[len(file_content) - 1] else line + '\n' for line in file_content]
+    saveTxtToFile(file_content, filename, True)
+
+def getTxtLine(line, filename):
+    file_content = saveTxtFromFile(filename).splitlines()
+
+    return file_content[line - 1]
+
 
 def launchMainGUI(res):
 
     def setVideoType(value):
         vidType = value
+        changeTxtLine(vidType, 1, 'data.txt')
     
     def setVideoLang(value):
         vidLang = value
-        file_content = saveTxtFromFile('data.txt').splitlines()
-        file_content[0] = vidLang + '\n'
-        file_content = [line if line.endswith('\n') else line + '\n' for line in file_content]
-        saveTxtToFile(file_content, 'data.txt', True)
+        changeTxtLine(vidLang, 2, 'data.txt')
+        
 
     def toggleLimitLenght():
         useLimitLenght = CheckerVideoLimit.get()
@@ -73,5 +84,8 @@ def launchMainGUI(res):
 
     SubsTextBox.delete("1.0", "end")
     SubsTextBox.insert("1.0", saveTxtFromFile('subs.txt'))
+
+    selVidType.set(getTxtLine(1, 'data.txt'))
+    selVidLang.set(getTxtLine(2, 'data.txt'))
 
     app.mainloop()

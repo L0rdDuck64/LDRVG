@@ -1,3 +1,2 @@
-es
-test
-anothertest
+Auto
+en
