@@ -1,3 +1,3 @@
-from guilaunch import *
+from guilaunch import launchMainGUI
 
 launchMainGUI([600, 600])
