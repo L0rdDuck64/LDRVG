@@ -1,3 +1,4 @@
 Auto
 en
 None
+Auto(local)
