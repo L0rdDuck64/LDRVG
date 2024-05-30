@@ -19,26 +19,25 @@ header {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    padding: 2vh;
     background: transparent;
     position: absolute;
-    font-size: 1.2vw;
+    font-size: 2.2vh;
     top: 0;
 }
 
 .logo {
-
-    font-size: 1.3em;
-    font-weight: bold;
-    align-self: flex-start;
-    padding-left: 4vh;
+    font-size: 1.25em;
+    font-weight: 600;
+    padding-left: 3vw;
+    padding-top: 1.8vh;
 }
 
 nav ul {
     list-style: none;
     display: flex;
     gap: 20px;
-    padding-right: 6vh;
+    padding-right: 3vw;
     align-self: flex-end;
 }
 
@@ -65,12 +64,12 @@ main {
 }
 
 h1 {
-    font-size: 8em;
+    font-size: 15vh;
     font-family: "Rubik", sans-serif;
     font-weight: 400;
     margin-bottom: -0vh;
-    background: rgb(95,112,164);
-    background: linear-gradient(90deg, rgba(95,112,164,1) 0%, rgba(88,155,167,1) 50%, rgba(95,112,164,1) 100%);
+    background: rgb(95, 155, 164);
+    background: linear-gradient(90deg, rgb(83, 190, 209) 0%, rgb(99, 159, 223) 50%, rgba(83, 190, 209) 100%);
     background-clip: text;
     color: transparent;
     -webkit-text-stroke: 0.023em #264059;
@@ -92,7 +91,7 @@ p span a {
 .description {
 
     margin-top: 0%;
-    font-size: 2em;
+    font-size: 3.8vh;
     color: #f3c074;
     font-family: "Encode Sans Expanded", sans-serif;
     font-weight: 400;
@@ -102,7 +101,7 @@ p span a {
 
     margin-top: -1vh;
     margin-bottom: 2vh;
-    font-size: 1.4em;
+    font-size: 3.2vh;
     color: grey;
 
 }
@@ -124,7 +123,7 @@ p span a {
 
 #nick {
 
-    font-size: 1.2vw;
+    font-size: 2.3vh;
 
 }
 
