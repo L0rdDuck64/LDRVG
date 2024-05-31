@@ -26,11 +26,18 @@ header {
     top: 0;
 }
 
-.logo {
-    font-size: 1.25em;
+#logo {
+    font-size: 1.35em;
     font-weight: 600;
     padding-left: 3vw;
-    padding-top: 1.8vh;
+    padding-top: 1.7vh;
+    text-decoration: none;
+    color:rgb(7, 153, 163);
+    transition: 0.45s;
+}
+
+#logo:hover {
+    transform: scale(1.1);
 }
 
 nav ul {
@@ -48,11 +55,13 @@ nav ul li a {
 }
 
 nav ul li {
-    animation: navout 0.5s forwards;
+    font-weight: 400;
+    transition: 0.4s;
 }
 
 nav ul li:hover {
-    animation: navin 0.5s forwards;
+    font-weight: 500;
+    transform: scale(1.1);
 }
 
 main {
@@ -81,11 +90,6 @@ p span a {
     -webkit-text-stroke: 0.027em #2582de;
     font-weight: 600;
     font-size: 1.1em;
-}
-
-.logo a {
-    text-decoration: none;
-    color: black;
 }
 
 .description {
@@ -139,67 +143,12 @@ button {
     font-family: "Mulish", sans-serif;
     font-weight: 500;
     position: relative;
-    animation: buttonout 0.6s forwards;
+    transition: 0.45s;
 }
 
 button:hover {
-    animation: buttonscale 0.6s forwards;
-}
-
-@keyframes buttonscale {
-    from {
-        transform: scale(1);
-        background: #add8e6;
-        border: 0.4vh solid #6fb7ff;
-        box-shadow: none;
-    }
-    to {
-        transform: scale(1.13);
-        background: #a0c6ea;
-        border: 0.45vh solid #5eaeff;
-        box-shadow: 0 0 25px rgba(73, 164, 255, 0.7);
-
-    }
-}
-
-@keyframes buttonout {
-
-    from {
-        transform: scale(1.13);
-        background: #a0c6ea;
-        border: 0.45vh solid #5eaeff;
-        box-shadow: 0 0 25px rgba(73, 164, 255, 0.7);
-    }
-    to {
-        transform: scale(1);
-        background: #add8e6;
-        border: 0.4vh solid #6fb7ff;
-        box-shadow: none;
-    }
-
-}
-
-@keyframes navin {
-
-    from {
-        transform: scale(1);
-        font-weight: 400;
-    }
-    to {
-        transform: scale(1.1);
-        font-weight: 500;
-    }
-
-}
-
-@keyframes navout {
-    
-    from {
-        transform: scale(1.1);
-        font-weight: 500;
-    }
-    to {
-        transform: scale(1);
-        font-weight: 400;
-    }
+    transform: scale(1.13);
+    background: #a0c6ea;
+    border: 0.45vh solid #5eaeff;
+    box-shadow: 0 0 25px rgba(73, 164, 255, 0.7);
 }

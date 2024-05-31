@@ -39,13 +39,14 @@ def openFileDialog(typ, titl):
 # Main
 
 lcp = 'chromium/chrome.exe'
+au = get_all_udds()
 vidType = "Auto"
 vidLang = "en"
 uddFile = getTxtLine(3, 'data.txt')
 uddFile = uddFile if uddFile != 'None' else None
 chromium = getTxtLine(4, 'data.txt')
 chromium = chromium if chromium != lcp else lcp
-uddSelections = ['None', *(list(get_all_udds().keys())), *([uddFile] if uddFile else [])]
+uddSelections = ['None', *(list(au.keys())), *([uddFile] if uddFile else [])]
 useLimitLenght = False
 subsList = []
 
@@ -64,6 +65,8 @@ def launchMainGUI(res):
         changeTxtLine(value, 3, 'data.txt')
         if value == 'None':
             uddFile = None
+        elif value in au:
+            uddFile = au[value]
 
     def setBwr(value):
         chromium = value
@@ -87,7 +90,7 @@ def launchMainGUI(res):
         if tempVar:
             uddFile = tempVar
             changeTxtLine(uddFile, 3, 'data.txt')
-            selUDD.configure(values=["None", uddFile])
+            selUDD.configure(values=["None", *list(au.keys()), uddFile])
             selUDD.set(uddFile)
 
     def selectBrowserExe():
